@@ -2,9 +2,12 @@
   "name": "treehouse-router",
   "version": "1.0.0",
   "description": "URL router for use with treehouse",
-  "main": "index.js",
+  "main": "lib/treehouse_router.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/jasmine-es6/bin/jasmine.js",
+    "build": "node_modules/webpack/bin/webpack.js --optimize-minimize",
+    "compile": "node_modules/babel/bin/babel.js -d lib/ src/",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/markevans/treehouse-router/issues"
   },
-  "homepage": "https://github.com/markevans/treehouse-router#readme"
+  "homepage": "https://github.com/markevans/treehouse-router#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "jasmine-es6": "0.0.17",
+    "treehouse": "^2.1.1",
+    "webpack": "^1.12.1"
+  }
 }
