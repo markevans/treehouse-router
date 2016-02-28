@@ -1,1 +1,4 @@
 src/
+dist/
+spec/
+webpack.config.js
