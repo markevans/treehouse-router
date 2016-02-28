@@ -16,7 +16,7 @@ class Router {
     this.treehouse = treehouse
     this.treeView = this.treehouse.pick(treePicker)
     this.serializer = serializer
-    this.stateKeys = Object.keys(this.treeView.items())
+    this.stateKeys = Object.keys(this.treeView.streams())
 
     this.treeView.watch((t) => {
       this.setState(t.get())
