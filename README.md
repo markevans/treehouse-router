@@ -1,5 +1,5 @@
 # treehouse-router
-URL router for use with [https://github.com/markevans/treehouse](Treehouse).
+URL router for use with [Treehouse](https://github.com/markevans/treehouse).
 
 The Treehouse Router provides a one-to-one map between the URL and selected parts of the treehouse state.
 It makes routing incredibly easy. All you need to provide is
