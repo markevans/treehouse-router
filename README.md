@@ -71,10 +71,10 @@ let serializer = {
 ## Installation
   - Via npm
 
-    npm install treehouse-router
+        npm install treehouse-router
 
   - Via bower
 
-    bower install treehouse-router
+        bower install treehouse-router
 
   - Get the js file manually from github, dist folder
