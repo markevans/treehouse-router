@@ -1,4 +1,4 @@
-import serializer from '../../src/serializers/simple_serializer'
+const serializer = require('../../lib/serializers/simple_serializer')
 
 describe("Simple Serializer", () => {
 

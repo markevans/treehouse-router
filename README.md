@@ -13,20 +13,27 @@ Examples in ES6
 
 ```javascript
 import Router from 'treehouse-router'
-new Router(treehouse, (t) => {
-  return {
-    page: t.at('currentPage'),
-    user: t.query('selectedUserName')
-  }
-}, serializer)
+
+const router = new Router(
+  treehouse.treeView((t) => {
+    return {
+      page: t.at('currentPage'),
+      user: t.query('selectedUserName')
+    }
+  }),
+  treehouse.action('urlChanged'),
+  serializer
+)
+
+router.push() // This pushes state extracted from the current URL onto the treehouse tree - possibly needed once on initialize.
 
 ```
 See below for what `serializer` should be.
 
-When the URL changes, the router calls the action `"router:urlChanged"` which you should implement like so:
+When the URL changes, the router calls the action you passed in (in this case `'urlChanged'`)
 ```javascript
-  'router:urlChanged' (tree, {router}) {
-    router.push()  // Pushes to the tree
+  'urlChanged' () {
+    router.push()
   }
 ```
 
@@ -42,17 +49,17 @@ The simple serializer maps between
 ```
 ```javascript
 import {Router, serializers} from 'treehouse-router'
-new Router(treehouse, (t) => {
+new Router(treehouse.treeView(t => {
   // ...
-}, serializers.simple)
+}), serializers.simple)
 ```
 
 ### JSON serialization
 ```javascript
 import {Router, serializers} from 'treehouse-router'
-new Router(treehouse, (t) => {
+new Router(treehouse.treeView(t => {
   // ...
-}, serializers.json)
+}), serializers.json)
 ```
 
 ### Custom serialization
@@ -68,13 +75,6 @@ let serializer = {
 }
 ```
 
-## Installation
-  - Via npm
+## Installation via npm
 
-        npm install treehouse-router
-
-  - Via bower
-
-        bower install treehouse-router
-
-  - Get the js file manually from github, dist folder
+    npm install treehouse-router

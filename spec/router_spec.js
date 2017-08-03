@@ -1,5 +1,5 @@
-import treehouse from 'treehouse'
-import Router from '../src/router'
+const treehouse = require('treehouse')
+const Router = require('../lib/router')
 
 describe("Router", () => {
   let router
@@ -16,12 +16,12 @@ describe("Router", () => {
           return JSON.parse(string)
         }
       }
-      router = new Router(treehouse, (t) => {
+      router = new Router(treehouse.treeView((t) => {
         return {
           a: t.at('a'),
           b: t.at('b')
         }
-      }, serializer)
+      }), () => {}, serializer)
     })
 
     it("calls serialize with the correct object", () => {
