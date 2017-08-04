@@ -25,15 +25,15 @@ const router = new Router(
   serializer
 )
 
-router.push() // This pushes state extracted from the current URL onto the treehouse tree - possibly needed once on initialize.
+router.callAction() // Possibly needed once on initialize to sync.
 
 ```
 See below for what `serializer` should be.
 
 When the URL changes, the router calls the action you passed in (in this case `'urlChanged'`)
 ```javascript
-  'urlChanged' () {
-    router.push()
+  'urlChanged' (tree, changes) {
+    tree.apply(changes)
   }
 ```
 

@@ -26,8 +26,10 @@ describe("Router", () => {
 
     it("calls serialize with the correct object", () => {
       spyOn(router, 'hash').and.returnValue(JSON.stringify({b: 2, c: 3}))
-      router.push()
-      expect(treehouse.tree()).toEqual({a: null, b: 2})
+      expect(router.changes()).toEqual([
+        {path: ['a'], value: null},
+        {path: ['b'], value: 2}
+      ])
     })
 
   })
