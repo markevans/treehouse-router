@@ -23,6 +23,6 @@
   "homepage": "https://github.com/markevans/treehouse-router#readme",
   "devDependencies": {
     "jasmine": "^2.7.0",
-    "treehouse": "^3.2.1"
+    "treehouse": "^3.3.0"
   }
 }

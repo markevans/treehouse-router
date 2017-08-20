@@ -15,7 +15,7 @@ Examples in ES6
 import Router from 'treehouse-router'
 
 const router = new Router(
-  treehouse.treeView((t) => {
+  treehouse.pick((t) => {
     return {
       page: t.at('currentPage'),
       user: t.query('selectedUserName')
@@ -49,7 +49,7 @@ The simple serializer maps between
 ```
 ```javascript
 import {Router, serializers} from 'treehouse-router'
-new Router(treehouse.treeView(t => {
+new Router(treehouse.pick(t => {
   // ...
 }), serializers.simple)
 ```
@@ -57,7 +57,7 @@ new Router(treehouse.treeView(t => {
 ### JSON serialization
 ```javascript
 import {Router, serializers} from 'treehouse-router'
-new Router(treehouse.treeView(t => {
+new Router(treehouse.pick(t => {
   // ...
 }), serializers.json)
 ```

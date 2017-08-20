@@ -16,7 +16,7 @@ describe("Router", () => {
           return JSON.parse(string)
         }
       }
-      router = new Router(treehouse.treeView((t) => {
+      router = new Router(treehouse.pick((t) => {
         return {
           a: t.at('a'),
           b: t.at('b')
