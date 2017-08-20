@@ -15,17 +15,17 @@ Examples in ES6
 import Router from 'treehouse-router'
 
 const router = new Router(
-  treehouse.pick((t) => {
+  treehouse.pick((t) => {            // 1st arg is a treeView
     return {
       page: t.at('currentPage'),
       user: t.query('selectedUserName')
     }
   }),
-  treehouse.action('urlChanged'),
-  serializer
+  treehouse.action('urlChanged'),    // 2nd arg is an action to call when the url changes
+  serializer                         // 3rd arg is a serializer to map between url and state (see below)
 )
 
-router.callAction() // Possibly needed once on initialize to sync.
+router.syncWithUrl() // Possibly needed once when initializing the app
 
 ```
 See below for what `serializer` should be.
