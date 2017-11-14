@@ -16,12 +16,16 @@ describe("Router", () => {
           return JSON.parse(string)
         }
       }
-      router = new Router(treehouse.pick((t) => {
-        return {
-          a: t.at('a'),
-          b: t.at('b')
+      router = new Router(
+        treehouse,
+        {
+          pick: t => ({
+            a: t.at('a'),
+            b: t.at('b')
+          }),
+          serializer
         }
-      }), () => {}, serializer)
+      )
     })
 
     it("calls serialize with the correct object", () => {
